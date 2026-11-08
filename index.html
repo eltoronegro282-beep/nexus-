@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>NEXUS | Asistente personal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">N</div><div><div class="brand-name">NEXUS</div><div class="brand-sub">PERSONAL AI</div></div></div>
+      <div class="side-label">CENTRO DE CONTROL</div>
+      <button class="nav-item active" data-view="assistant"><span>◈</span> Asistente</button>
+      <button class="nav-item" data-view="tasks"><span>▤</span> Mis tareas</button>
+      <button class="nav-item" data-view="reminders"><span>◷</span> Recordatorios</button>
+      <div class="sidebar-bottom">
+        <div class="status-card"><span class="status-dot"></span><div><b>Sistema en línea</b><small>Interfaz local activa</small></div></div>
+        <div class="side-note">NEXUS v1.0 · Construido para ayudarte</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow">TU ESPACIO INTELIGENTE</div><h1 id="pageTitle">Asistente personal</h1></div>
+        <div class="top-right"><div class="clock"><strong id="clock">--:--</strong><span id="date">Cargando fecha…</span></div><div class="avatar">N</div></div>
+      </header>
+
+      <section class="view active" id="assistantView">
+        <div class="hero-row">
+          <div class="hero-copy"><div class="eyebrow cyan">NÚCLEO DE INTELIGENCIA</div><h2>¿En qué puedo<br><span>ayudarte hoy?</span></h2><p>Organiza tus ideas, consulta información y convierte tus planes en acciones.</p></div>
+          <div class="core-wrap"><div class="core-ring ring-one"></div><div class="core-ring ring-two"></div><div class="core-orb"><span>N</span></div><div class="core-caption">NEXUS ONLINE</div></div>
+        </div>
+        <div class="chat-panel panel">
+          <div class="panel-head"><div><span class="live-indicator"></span><b>Conversación</b><small> · IA conectada mediante Netlify</small></div><button id="clearChat" class="ghost-btn">Limpiar</button></div>
+          <div id="chatMessages" class="messages" aria-live="polite">
+            <div class="message assistant"><div class="message-avatar">N</div><div class="bubble"><b>NEXUS</b><p>Hola. Soy NEXUS, tu asistente personal. Escribe un mensaje o utiliza el micrófono para hablar conmigo.</p></div></div>
+          </div>
+          <div class="composer">
+            <textarea id="messageInput" rows="1" maxlength="5000" placeholder="Escribe tu mensaje… (Enter para enviar)"></textarea>
+            <button id="micButton" class="icon-btn" title="Dictar mensaje" aria-label="Dictar mensaje">🎙</button>
+            <button id="sendButton" class="send-btn">Enviar <span>➤</span></button>
+          </div>
+          <div class="composer-foot"><span id="voiceStatus">Voz: lista para usar si tu navegador la admite</span><span>Verifica la información importante</span></div>
+        </div>
+      </section>
+
+      <section class="view" id="tasksView">
+        <div class="section-intro"><div class="eyebrow cyan">PRODUCTIVIDAD</div><h2>Mis tareas</h2><p>Guarda tus pendientes en este dispositivo.</p></div>
+        <div class="panel task-panel"><form id="taskForm" class="add-row"><input id="taskInput" maxlength="160" placeholder="¿Qué necesitas hacer?" required><button class="send-btn">Agregar +</button></form><div id="taskList" class="task-list"><div class="empty-state">Todavía no tienes tareas. Agrega la primera.</div></div></div>
+      </section>
+
+      <section class="view" id="remindersView">
+        <div class="section-intro"><div class="eyebrow cyan">ORGANIZACIÓN</div><h2>Recordatorios</h2><p>Programa avisos mientras NEXUS esté abierto en tu navegador.</p></div>
+        <div class="panel reminder-panel">
+          <form id="reminderForm" class="reminder-form">
+            <label>Descripción<input id="reminderText" maxlength="140" placeholder="Ej. Revisar mi proyecto" required></label>
+            <label>Fecha y hora<input id="reminderTime" type="datetime-local" required></label>
+            <button class="send-btn">Crear recordatorio</button>
+          </form>
+          <p class="hint">Para recibir notificaciones, permite los avisos del navegador cuando te lo solicite. Los recordatorios se guardan en este dispositivo; el navegador debe permanecer abierto para avisarte.</p>
+          <div id="reminderList" class="task-list"><div class="empty-state">No hay recordatorios programados.</div></div>
+        </div>
+      </section>
+
+      <footer> NEXUS <span>·</span> TU ASISTENTE PERSONAL <span class="footer-right">Diseñado para mantener tus ideas en movimiento.</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>

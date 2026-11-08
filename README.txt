@@ -47,3 +47,11 @@ SOLUCIÓN DE PROBLEMAS
 - Si aparece “Falta configurar OPENAI_API_KEY”: revisa la variable en Netlify y vuelve a desplegar.
 - Si el chat devuelve error del servicio: revisa la clave, permisos, saldo/límites de API y el modelo configurado.
 - Si no funciona el micrófono: abre el sitio con HTTPS, habilita el permiso y prueba Chrome o Edge.
+
+
+CORRECCIÓN v2
+- app.js devuelve ahora el elemento de cada mensaje, evitando que quede visible el mensaje "Estoy pensando...".
+- El chat muestra errores entendibles y cancela solicitudes que demoran demasiado.
+- GET /.netlify/functions/chat permite verificar que la función se desplegó.
+- Para usar dictado por voz, prueba Google Chrome actualizado y permite el uso del micrófono. Opera no tiene soporte fiable para SpeechRecognition.
+- Esta versión no habilita IA automáticamente: la clave sigue siendo una variable privada de Netlify y debe administrarla un adulto responsable.
